@@ -81,6 +81,10 @@ async function updateUser(req, res) {
     console.error(`Error while updating User with ID ${userId}:`, err);
     res.status(500).json({ error: 'Failed to update user.' });
   }
+}
+
+function createUser(req, res) {
+  const userData = req.body.user;
 
   User.create(userData)
     .then(newUser => {
